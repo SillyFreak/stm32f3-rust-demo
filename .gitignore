@@ -1,2 +1,11 @@
 /stm32f3.tar.gz
 /stm32f3/
+
+/libcore-thumbv7m/
+/librustc_bitflags-thumbv7m/
+
+*.bin
+*.elf
+*.map
+*.o
+
