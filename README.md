@@ -39,10 +39,10 @@ Add an `udev` rule for the board:
 
 After cloning, build the rust libraries. The libraries must match the nightly `rustc` you use:
 
-   cd rust
-   git checkout $(multirust run nightly rustc -v --version | grep commit-hash: | sed 's/commit-hash: //')
-   cd ..
-   multirust run nightly make libs
+    cd rust
+    git checkout $(multirust run nightly rustc -v --version | grep commit-hash: | sed 's/commit-hash: //')
+    cd ..
+    multirust run nightly make libs
 
 For regular development, use the other make targets:
 
