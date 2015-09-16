@@ -55,6 +55,10 @@ RUSTFLAGS = -C opt-level=2 -Z no-landing-pads \
             -L librustc_bitflags-thumbv7m
 
 
+# Default target
+
+all: $(PROJ_NAME).bin info
+
 # Preparation
 
 unpack-stm32f3.tar.gz:
@@ -94,8 +98,6 @@ $(PROJ_NAME).bin: $(PROJ_NAME).elf
 
 info: $(PROJ_NAME).elf
 	@$(SIZE) --format=berkeley $(PROJ_NAME).elf
-
-all: $(PROJ_NAME).bin info
 
 # Deployment
 
