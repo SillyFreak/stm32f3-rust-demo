@@ -18,11 +18,11 @@ STM32F3_C_SRCS+= $(wildcard stm32f3/src/*.c)
 STM32F3_S_SRCS = $(wildcard stm32f3/src/*.s)
 
 C_SRCS  = $(wildcard src/*.c)
-RS_SRCS = src/main.rs
+RS_SRCS = $(wildcard src/*.rs)
 
 # Set Objects
 STM32F3_OBJS = $(STM32F3_C_SRCS:.c=.o) $(STM32F3_S_SRCS:.s=.o)
-OBJS         = $(C_SRCS:.c=.o) $(RS_SRCS:.rs=.o)
+OBJS         = $(C_SRCS:.c=.o) src/main.o
 
 # Set Include Paths
 INCLUDES = -Istm32f3/Libraries/STM32F30x_StdPeriph_Driver/inc/ \
@@ -84,8 +84,8 @@ libs:
 	@$(CC) $(ASFLAGS) -c -o $@ $<
 	@echo $@
 
-%.o: %.rs
-	@$(RUSTC) $(RUSTFLAGS) -o ${@} ${<}
+src/main.o: $(RS_SRCS)
+	@$(RUSTC) $(RUSTFLAGS) -o ${@} ${@:.o=.rs}
 	@echo $@
 
 $(PROJ_NAME).elf: $(STM32F3_OBJS) $(OBJS)
