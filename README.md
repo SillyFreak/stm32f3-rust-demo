@@ -1,7 +1,10 @@
-### Rust on STM32F3
+# Rust on STM32F3
 
 This repository contains an example on how to use Rust on an STM32F3 microcontroller.
 It was tested on an STM32F3 Discovery board.
+
+This repo shows a toolchain to combine C and Rust into an executable for an STM32F3.
+What it doesn't show (yet) is how to access hardware directly in Rust.
 
 Information from the following sources was used for setting up this project:
 
@@ -31,4 +34,37 @@ Until I find some equivalent code that I am certain I can legally include in thi
 Add an `udev` rule for the board:
 
     sudo sh -c 'echo ATTRS{idVendor}=="0483", ATTRS{idProduct}=="3748", MODE="0666" > /etc/udev/rules.d/99-stlink.rules'
+
+## Building
+
+After cloning, build the rust libraries. The libraries must match the nightly `rustc` you use:
+
+   cd rust
+   git checkout $(multirust run nightly rustc -v --version | grep commit-hash: | sed 's/commit-hash: //')
+   cd ..
+   multirust run nightly make libs
+
+For regular development, use the other make targets:
+
+    #clean the project directory (except results of `make libs`)
+    multirust run nightly make clean
+    #build the binary
+    multirust run nightly make
+    #flash the controller
+    multirust run nightly make flash
+
+## Content
+
+Currently, this project contains a simple LED-blinking example.
+The Rust part of the code consists of the following:
+
+* wrappers for Relevant C library functions;
+* the `main()` function, which does the actual LED blinking;
+* and some minimal runtime code to satisfy the compiler and linker: `panic_fmt`, `_exit`, etc.
+
+A serious project would want to provide safe hardware access APIs in Rust instead of relying on C for this.
+
+## Bugs
+
+If you encounter bugs in this README file, or anywhere in this repository, please report it here on GitHub.
 
