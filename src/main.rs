@@ -6,6 +6,8 @@
 #![crate_type="staticlib"]
 
 mod runtime;
+mod bitflags;
+mod stm32f3;
 mod discovery;
 
 #[no_mangle]
@@ -14,9 +16,11 @@ pub fn main() {
 
 	discovery::core_clock_update();
 
-    discovery::led::init(0);
+    let led = &discovery::LED[0];
+
+    led.init();
     loop {
-        discovery::led::toggle(0);
+        led.toggle();
 		discovery::delay_ms(500);
     }
 }
