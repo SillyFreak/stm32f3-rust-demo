@@ -58,14 +58,14 @@ impl Led {
     }
 }
 
-pub const LED6:  Led = Led { led: 0, port: gpio::PORT_E, pin: gpio::PIN15, };
-pub const LED8:  Led = Led { led: 0, port: gpio::PORT_E, pin: gpio::PIN14, };
-pub const LED10: Led = Led { led: 0, port: gpio::PORT_E, pin: gpio::PIN13, };
-pub const LED9:  Led = Led { led: 0, port: gpio::PORT_E, pin: gpio::PIN12, };
-pub const LED7:  Led = Led { led: 0, port: gpio::PORT_E, pin: gpio::PIN11, };
-pub const LED5:  Led = Led { led: 0, port: gpio::PORT_E, pin: gpio::PIN10, };
+pub const LED6:  Led = Led { led: 3, port: gpio::PORT_E, pin: gpio::PIN15, };
+pub const LED8:  Led = Led { led: 5, port: gpio::PORT_E, pin: gpio::PIN14, };
+pub const LED10: Led = Led { led: 7, port: gpio::PORT_E, pin: gpio::PIN13, };
+pub const LED9:  Led = Led { led: 6, port: gpio::PORT_E, pin: gpio::PIN12, };
+pub const LED7:  Led = Led { led: 4, port: gpio::PORT_E, pin: gpio::PIN11, };
+pub const LED5:  Led = Led { led: 2, port: gpio::PORT_E, pin: gpio::PIN10, };
 pub const LED3:  Led = Led { led: 0, port: gpio::PORT_E, pin: gpio::PIN9,  };
-pub const LED4:  Led = Led { led: 0, port: gpio::PORT_E, pin: gpio::PIN8,  };
+pub const LED4:  Led = Led { led: 1, port: gpio::PORT_E, pin: gpio::PIN8,  };
 
 pub const LED: [Led; 8] = [
     LED3, LED4, LED5, LED6,
