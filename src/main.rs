@@ -7,6 +7,7 @@
 
 mod runtime;
 mod bitflags;
+mod registers;
 mod stm32f3;
 mod discovery;
 

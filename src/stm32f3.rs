@@ -20,12 +20,16 @@ pub mod gpio {
         pub RESERVED3: u16, //0x2A
     }
 
-    pub const PORT_A: *mut Port = 0x48000000 as *mut Port;
-    pub const PORT_B: *mut Port = 0x48000400 as *mut Port;
-    pub const PORT_C: *mut Port = 0x48000800 as *mut Port;
-    pub const PORT_D: *mut Port = 0x48000C00 as *mut Port;
-    pub const PORT_E: *mut Port = 0x48001000 as *mut Port;
-    pub const PORT_F: *mut Port = 0x48001400 as *mut Port;
+    registers! {
+        registers: Port {
+            const PORT_A = 0x48000000,
+            const PORT_B = 0x48000400,
+            const PORT_C = 0x48000800,
+            const PORT_D = 0x48000C00,
+            const PORT_E = 0x48001000,
+            const PORT_F = 0x48001400,
+        }
+    }
 
     bitflags! {
         flags Pin: u32 {
