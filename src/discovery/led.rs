@@ -18,12 +18,10 @@ impl Led {
     }
 
     pub fn toggle(&self) {
-        unsafe {
-            let port = &mut *self.port;
-            let pin = self.pin;
+        let port = unsafe { &mut *self.port };
+        let pin = self.pin;
 
-            port.ODR ^= pin.bits() as u16;
-        }
+        port.ODR ^= pin.bits() as u16;
     }
 }
 

@@ -18,14 +18,12 @@ pub struct Port {
 }
 
 registers! {
-    registers: Port {
-        const PORT_A = 0x48000000,
-        const PORT_B = 0x48000400,
-        const PORT_C = 0x48000800,
-        const PORT_D = 0x48000C00,
-        const PORT_E = 0x48001000,
-        const PORT_F = 0x48001400,
-    }
+    const PORT_A: Port = 0x48000000,
+    const PORT_B: Port = 0x48000400,
+    const PORT_C: Port = 0x48000800,
+    const PORT_D: Port = 0x48000C00,
+    const PORT_E: Port = 0x48001000,
+    const PORT_F: Port = 0x48001400,
 }
 
 bitflags! {

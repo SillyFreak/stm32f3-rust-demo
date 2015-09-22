@@ -17,9 +17,7 @@ pub struct Rcc {
 }
 
 registers! {
-    registers: Rcc {
-        const RCC = 0x40021000,
-    }
+    const RCC: Rcc = 0x40021000,
 }
 
 bitflags! {
