@@ -30,22 +30,22 @@ registers! {
 
 bitflags! {
     flags Pin: u32 {
-        const PIN0  = (1 <<  0),
-        const PIN1  = (1 <<  1),
-        const PIN2  = (1 <<  2),
-        const PIN3  = (1 <<  3),
-        const PIN4  = (1 <<  4),
-        const PIN5  = (1 <<  5),
-        const PIN6  = (1 <<  6),
-        const PIN7  = (1 <<  7),
-        const PIN8  = (1 <<  8),
-        const PIN9  = (1 <<  9),
-        const PIN10 = (1 << 10),
-        const PIN11 = (1 << 11),
-        const PIN12 = (1 << 12),
-        const PIN13 = (1 << 13),
-        const PIN14 = (1 << 14),
-        const PIN15 = (1 << 15),
+        const PIN0  = 1 <<  0,
+        const PIN1  = 1 <<  1,
+        const PIN2  = 1 <<  2,
+        const PIN3  = 1 <<  3,
+        const PIN4  = 1 <<  4,
+        const PIN5  = 1 <<  5,
+        const PIN6  = 1 <<  6,
+        const PIN7  = 1 <<  7,
+        const PIN8  = 1 <<  8,
+        const PIN9  = 1 <<  9,
+        const PIN10 = 1 << 10,
+        const PIN11 = 1 << 11,
+        const PIN12 = 1 << 12,
+        const PIN13 = 1 << 13,
+        const PIN14 = 1 << 14,
+        const PIN15 = 1 << 15,
     }
 }
 
