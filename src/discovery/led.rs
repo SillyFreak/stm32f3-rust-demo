@@ -9,22 +9,23 @@ pub struct Led {
     pub clk:  rcc::AHBENR,
 }
 
-extern {
-    fn STM_EVAL_LEDInit(led: u8);
-}
-
 impl Led {
     pub fn init(&mut self) {
-        unsafe {
-            STM_EVAL_LEDInit(self.led);
-        }
+        let port = &mut *self.port;
+        let rcc = &mut *rcc::RCC;
+        let clk = self.clk;
+
+        rcc.AHBENR |= clk.bits();
+        
+        port.init(self.pin, gpio::MODE_OUT,
+                  gpio::OSPEED_50MHZ, gpio::OTYPE_PP, gpio::PUPD_UP);
     }
 
     pub fn toggle(&mut self) {
         let port = &mut *self.port;
         let pin = self.pin;
 
-        port.ODR ^= pin.bits() as u16;
+        port.ODR ^= pin.bits();
     }
 }
 
