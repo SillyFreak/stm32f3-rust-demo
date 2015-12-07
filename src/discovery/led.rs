@@ -1,8 +1,9 @@
+use registers::RegPtr;
 use stm32f3::gpio;
 
 pub struct Led {
     pub led:  u8,
-    pub port: *mut gpio::Port,
+    pub port: RegPtr<gpio::Port>,
     pub pin:  gpio::Pin,
 }
 
@@ -17,8 +18,8 @@ impl Led {
         }
     }
 
-    pub fn toggle(&self) {
-        let port = unsafe { &mut *self.port };
+    pub fn toggle(&mut self) {
+        let port = &mut *self.port;
         let pin = self.pin;
 
         port.ODR ^= pin.bits() as u16;

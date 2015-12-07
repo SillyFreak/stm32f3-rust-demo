@@ -1,3 +1,5 @@
+use registers::RegPtr;
+
 #[repr(C, packed)]
 #[allow(non_snake_case)]
 pub struct Port {

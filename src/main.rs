@@ -17,7 +17,7 @@ pub fn main() {
 
 	discovery::core_clock_update();
 
-    let led = &discovery::LED[0];
+    let led = &mut discovery::LED[0];
 
     led.init();
     loop {
