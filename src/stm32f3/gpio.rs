@@ -1,4 +1,4 @@
-use registers::RegPtr;
+use registers::{Reg, RegPtr};
 
 #[repr(C, packed)]
 #[allow(non_snake_case)]
